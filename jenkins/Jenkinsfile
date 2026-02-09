@@ -3,7 +3,10 @@ pipeline {
     
     environment {
         // JIRA_PROJECT_KEY = 'PROJ'
-        JIRA_PROJECT_KEY = 'MP'
+        // JIRA_PROJECT_KEY = 'MP'
+        JIRA_PROJECT_KEY = 'CCE'
+        // JIRA_SITE = 'ml-projects'
+        JIRA_SITE = 'ci-cd-project'
     }
     
     stages {
@@ -28,10 +31,11 @@ pipeline {
             steps {
                 script {
                     echo 'Creating issue on JIRA'
-                    jiraNewIssue site: 'ml-projects', issue: [
+                    jiraNewIssue site: env.JIRA_SITE, issue: [
                         fields: [
                             project: [key: env.JIRA_PROJECT_KEY],
                             summary: 'New issue from Jenkins',
+                            description: 'This is a new issue from Jenkins',
                             issuetype: [name: 'Bug']
                         ]
                     ]
