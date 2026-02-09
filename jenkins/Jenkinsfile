@@ -28,7 +28,7 @@ pipeline {
             steps {
                 script {
                     echo 'Creating issue on JIRA'
-                    jiraNewIssue site: 'MyJiraSite', issue: [
+                    jiraNewIssue site: 'ml-projects', issue: [
                         fields: [
                             project: [key: env.JIRA_PROJECT_KEY],
                             summary: 'New issue from Jenkins',
