@@ -7,21 +7,21 @@ pipeline {
     }
     
     stages {
-        stage('Get From Github') {
-            agent {
-                docker {
-                    image 'alpine/git:latest'
-                    args '--entrypoint='
-                }
-            }
-            steps {
-                script {
-                    checkout scm
-                    sh 'echo "Fetching code from GitHub repository"'
-                    sh 'git log -1 --pretty=format:"%h - %an, %ar : %s"'
-                }
-            }
-        }
+        // stage('Get From Github') {
+        //     agent {
+        //         docker {
+        //             image 'alpine/git:latest'
+        //             args '--entrypoint='
+        //         }
+        //     }
+        //     steps {
+        //         script {
+        //             checkout scm
+        //             sh 'echo "Fetching code from GitHub repository"'
+        //             sh 'git log -1 --pretty=format:"%h - %an, %ar : %s"'
+        //         }
+        //     }
+        // }
 
         stage('Create Issue on JIRA') {
             agent any
