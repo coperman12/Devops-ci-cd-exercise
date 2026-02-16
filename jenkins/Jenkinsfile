@@ -65,7 +65,7 @@ stages {
                 script {
                     sh '''
                     
-                        echo "Setting up Python environment"
+                        echo "Setting up Python environment test roy"
                         
                         # Install System Dependencies
                         apt-get update && apt-get install -y python3 python3-venv python3-pip wget gnupg unzip curl xvfb libxi6 libgbm1 libnss3 docker.io
